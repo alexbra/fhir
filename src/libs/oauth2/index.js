@@ -44,7 +44,7 @@ export default {
 
     return {
       accessToken: {
-        create: (token) => new AccessToken(options, client, token),
+        create: AccessToken.factory(options, client),
       },
       ownerPassword: new PasswordOwner(options, client),
       authorizationCode: new AuthorizationCode(options, client),

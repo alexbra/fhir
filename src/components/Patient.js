@@ -49,7 +49,7 @@ export default class Patient extends React.Component {
       console.log('The token is : ', token);
 
       fhirClient.bearerToken = token.access_token;
-
+      console.log(fhirClient)
       const patient = await fhirClient.read({ resourceType: 'Patient', id: token.patient });
 
       console.log('patient', patient)
