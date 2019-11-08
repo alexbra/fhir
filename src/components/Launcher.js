@@ -50,7 +50,7 @@ export default class Launcher extends React.Component {
       state: '12345',
     });
     console.log(authorizationUri)
-    // window.location.href = authorizationUri
+    window.location.href = authorizationUri
   }
   /**
    * Could also return `null` for empty page
