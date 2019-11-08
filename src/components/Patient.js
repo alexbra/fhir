@@ -43,7 +43,7 @@ export default class Patient extends React.Component {
 
     try {
       const result = await oauth2.authorizationCode.getToken(options);
-      console.log(result)
+      console.log('result', result)
       const { token } = oauth2.accessToken.create(result);
 
       console.log('The token is : ', token);

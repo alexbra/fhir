@@ -1,7 +1,6 @@
-const Hoek = require('@hapi/hoek');
-const Wreck = require('@hapi/wreck');
-const debug = require('debug')('simple-oauth2:client');
-const RequestOptions = require('./request-options');
+import RequestOptions from './request-options'
+import Hoek from '@hapi/hoek'
+import Wreck from '../../wreck'
 
 const defaultHttpOptions = {
   json: 'strict',
@@ -27,8 +26,8 @@ export default class Client {
     const requestOptions = new RequestOptions(this.config, params);
     const options = requestOptions.toObject(opts);
 
-    debug('Creating request to: (POST) %s', url);
-    debug('Using request options: %j', options);
+    console.log('Creating request to: (POST) %s', url);
+    console.log('Using request options: %j', options);
 
     const result = await this.client.post(url, options);
 
