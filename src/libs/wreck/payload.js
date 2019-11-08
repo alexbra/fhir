@@ -6,7 +6,7 @@ const Stream = require('stream');
 const internals = {};
 
 
-module.exports = internals.Payload = class extends Stream.Readable {
+export default class extends Stream.Readable {
 
     constructor(payload, encoding) {
 

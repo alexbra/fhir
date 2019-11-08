@@ -8,7 +8,7 @@ const Payload = require('./payload');
 const internals = {};
 
 
-module.exports = internals.Tap = class extends Stream.Transform {
+export default class extends Stream.Transform {
 
     constructor() {
 
