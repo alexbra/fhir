@@ -4,13 +4,15 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.9.2",
+    "fhir-kit-client": "^1.4.2",
     "fhirclient": "^2.1.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "simple-oauth2": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

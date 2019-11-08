@@ -1,6 +1,6 @@
-import React from "react";
-import FHIR from "fhirclient";
-
+import React from 'react'
+import Client from 'fhir-kit-client'
+import simpleOauthModule from 'simple-oauth2'
 /**
  * Typically the launch page is an empty page with a `SMART.authorize`
  * call in it.
@@ -16,16 +16,35 @@ export default class Launcher extends React.Component {
    * is loaded directly. An EHR can still launch it by passing `iss`
    * and `launch` url parameters
    */
-  componentDidMount() {
-    FHIR.oauth2.authorize({
-      client_id: "1728dd79-fb50-45cf-b16c-c3921bf92b5c",
-      redirect_uri: './app',
-      scope: [
-        "patient/*.*"    // Read patient data
-      ].join(" ")
-    }).then(client => {
-      console.log(client)
-    })
+  async componentDidMount() {
+    const CLIENT_ID = 'a19cfe80-43f6-42b0-954e-784f771bdb72';
+    const iss = 'https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/DSTU2'
+    const fhirClient = new Client({ baseUrl: iss })
+    const { authorizeUrl, tokenUrl } = await fhirClient.smartAuthMetadata();
+    const oauth2 = simpleOauthModule.create({
+      client: {
+        id: CLIENT_ID,
+      },
+      auth: {
+        tokenHost: `${tokenUrl.protocol}//${tokenUrl.host}`,
+        tokenPath: tokenUrl.pathname,
+        authorizeHost: `${authorizeUrl.protocol}//${authorizeUrl.host}`,
+        authorizePath: authorizeUrl.pathname,
+      },
+      options: {
+        authorizationMethod: 'body',
+      },
+    });
+
+    // Authorization uri definition
+    const authorizationUri = oauth2.authorizationCode.authorizeURL({
+      redirect_uri: 'http://localhost:3000/callback',
+      launch: '',
+      aud: iss,
+      scope: 'launch openid profile user/Patient.read patient/*.*',
+      state: '3(#0/!~',
+    });
+    console.log(authorizationUri)
   }
   /**
    * Could also return `null` for empty page
