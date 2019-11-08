@@ -1,10 +1,9 @@
-const debug = require('debug')('access-token');
-const isDate = require('date-fns/isDate');
-const parseISO = require('date-fns/parseISO');
-const addSeconds = require('date-fns/addSeconds');
-const isAfter = require('date-fns/isAfter');
+import isDate from 'date-fns/isDate'
+import parseISO from 'date-fns/parseISO'
+import addSeconds from 'date-fns/addSeconds'
+import isAfter from 'date-fns/isAfter'
 
-const GrantParams = require('./grant-params');
+import GrantParams from './grant-params'
 
 function getExpirationDate(expiresIn) {
   return addSeconds(new Date(), Number.parseInt(expiresIn, 10));
@@ -20,7 +19,7 @@ function parseToken(token) {
   } else if ('expires_in' in token) {
     tokenProperties.expires_at = getExpirationDate(token.expires_in);
   } else {
-    debug('No token expiration property was found. Ignoring date parsing');
+    console.log('No token expiration property was found. Ignoring date parsing');
   }
 
   return Object.assign({}, token, tokenProperties);
