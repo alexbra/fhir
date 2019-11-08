@@ -22,7 +22,8 @@ export default class Launcher extends React.Component {
     const iss = 'https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/DSTU2'
     const fhirClient = new Client({ baseUrl: iss })
     const { authorizeUrl, tokenUrl } = await fhirClient.smartAuthMetadata()
-    console.log(authorizeUrl)
+    console.log(this.props.location)
+    // console.log(authorizeUrl)
     const oauth2 = simpleOauthModule.create({
       client: {
         id: CLIENT_ID,
