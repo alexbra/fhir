@@ -17,7 +17,8 @@ export default class Patient extends React.Component {
 
     const fhirClient = new Client({ baseUrl: iss });
     const { authorizeUrl, tokenUrl } = await fhirClient.smartAuthMetadata();
-
+    console.log(window)
+    console.log(this.props)
     // Create a new OAuth2 object using the Client capability statement:
     const oauth2 = simpleOauthModule.create({
       client: {
