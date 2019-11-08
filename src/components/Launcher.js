@@ -20,11 +20,11 @@ export default class Launcher extends React.Component {
    */
   async componentDidMount() {
     const CLIENT_ID = 'a19cfe80-43f6-42b0-954e-784f771bdb72';
-    const iss = 'https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/DSTU2'
+    const query = queryString.parse(this.props.location.search)
+    const {iss, launch } = query
     const fhirClient = new Client({ baseUrl: iss })
     const { authorizeUrl, tokenUrl } = await fhirClient.smartAuthMetadata()
     console.log(this.props.location.search)
-    const query = queryString.parse(this.props.location.search)
     console.log(query)
     const oauth2 = simpleOauthModule.create({
       client: {
@@ -44,7 +44,7 @@ export default class Launcher extends React.Component {
     // Authorization uri definition
     const authorizationUri = oauth2.authorizationCode.authorizeURL({
       redirect_uri: 'https://master.dcaniku3iszo3.amplifyapp.com/app',
-      launch: '',
+      launch,
       aud: iss,
       scope: 'launch openid profile user/Patient.read patient/*.*',
       state: '12345',
