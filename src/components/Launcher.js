@@ -1,6 +1,7 @@
 import React from 'react'
 import Client from 'fhir-kit-client'
 import simpleOauthModule from '../libs/oauth2'
+import queryString from 'query-string'
 
 /**
  * Typically the launch page is an empty page with a `SMART.authorize`
@@ -22,8 +23,9 @@ export default class Launcher extends React.Component {
     const iss = 'https://apporchard.epic.com/interconnect-aocurprd-oauth/api/FHIR/DSTU2'
     const fhirClient = new Client({ baseUrl: iss })
     const { authorizeUrl, tokenUrl } = await fhirClient.smartAuthMetadata()
-    console.log(this.props.location)
-    // console.log(authorizeUrl)
+    console.log(this.props.location.search)
+    const query = queryString.parse(this.props.location.search)
+    console.log(query)
     const oauth2 = simpleOauthModule.create({
       client: {
         id: CLIENT_ID,
