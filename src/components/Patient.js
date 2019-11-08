@@ -34,7 +34,7 @@ export default class Patient extends React.Component {
         authorizationMethod: 'body',
       },
     });
-    const query = queryString.parse(this.props.location.search)
+    const query = queryString.parse(window.location.search)
 
     const { code } = query;
     const options = {
