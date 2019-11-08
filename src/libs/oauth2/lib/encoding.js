@@ -1,5 +1,3 @@
-'use strict';
-
 const HEADER_ENCODING_FORMAT = 'base64';
 
 /**
@@ -14,7 +12,7 @@ function useFormURLEncode(value) {
   return encodeURIComponent(value).replace(/%20/g, '+');
 }
 
-module.exports = {
+export default {
   /**
    * Get the authorization header used to request a valid token
    * @param  {String} clientID

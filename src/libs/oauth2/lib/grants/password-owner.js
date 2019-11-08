@@ -1,8 +1,6 @@
-'use strict';
+import GrantParams from '../grant-params'
 
-const GrantParams = require('../grant-params');
-
-module.exports = class PasswordOwner {
+export default class PasswordOwner {
   constructor(config, client) {
     this.config = config;
     this.client = client;

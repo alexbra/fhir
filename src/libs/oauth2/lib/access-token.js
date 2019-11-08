@@ -1,5 +1,3 @@
-'use strict';
-
 const debug = require('debug')('access-token');
 const isDate = require('date-fns/isDate');
 const parseISO = require('date-fns/parseISO');
@@ -28,7 +26,7 @@ function parseToken(token) {
   return Object.assign({}, token, tokenProperties);
 }
 
-module.exports = class AccessToken {
+export default class AccessToken {
   static factory(config, client) {
     return (token) => new AccessToken(config, client, token);
   }

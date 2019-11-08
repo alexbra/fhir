@@ -1,5 +1,3 @@
-'use strict';
-
 function getScopeParam(scope) {
   if (scope === undefined) {
     return null;
@@ -16,7 +14,7 @@ function getScopeParam(scope) {
   };
 }
 
-module.exports = class GrantParams {
+export default class GrantParams {
   static forGrant(grantType, params) {
     const baseParams = {
       grant_type: grantType,

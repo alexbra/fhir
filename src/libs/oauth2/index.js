@@ -1,11 +1,9 @@
-'use strict';
-
-const Joi = require('@hapi/joi');
-const Client = require('./lib/client');
-const AuthorizationCode = require('./lib/grants/authorization-code');
-const PasswordOwner = require('./lib/grants/password-owner');
-const ClientCredentials = require('./lib/grants/client-credentials');
-const AccessToken = require('./lib/access-token');
+import Client from './lib/client'
+import Joi from '@hapi/joi'
+import AuthorizationCode from './lib/grants/authorization-code'
+import PasswordOwner from './lib/grants/password-owner'
+import ClientCredentials from './lib/grants/client-credentials'
+import AccessToken from './lib/access-token'
 
 // https://tools.ietf.org/html/draft-ietf-oauth-v2-31#appendix-A.1
 const vsCharRegEx = /^[\x20-\x7E]*$/;
@@ -33,7 +31,7 @@ const optionsSchema = Joi
     }).default(),
   });
 
-module.exports = {
+export default {
 
   /**
    * Creates a new simple-oauth2 client with the provided configuration

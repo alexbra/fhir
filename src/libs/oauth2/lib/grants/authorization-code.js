@@ -1,9 +1,7 @@
-'use strict';
+import querystring from 'querystring'
+import GrantParams from '../grant-params'
 
-const querystring = require('querystring');
-const GrantParams = require('../grant-params');
-
-module.exports = class AuthorizationCode {
+export default class AuthorizationCode {
   constructor(config, client) {
     this.config = config;
     this.client = client;

@@ -1,5 +1,3 @@
-'use strict';
-
 const Hoek = require('@hapi/hoek');
 const Wreck = require('@hapi/wreck');
 const debug = require('debug')('simple-oauth2:client');
@@ -13,7 +11,7 @@ const defaultHttpOptions = {
   },
 };
 
-module.exports = class Client {
+export default class Client {
   constructor(config) {
     const configHttpOptions = Hoek.applyToDefaults(config.http || {}, {
       baseUrl: config.auth.tokenHost,

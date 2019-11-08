@@ -1,5 +1,3 @@
-'use strict';
-
 const Hoek = require('@hapi/hoek');
 const querystring = require('querystring');
 const debug = require('debug')('simple-oauth2:request-options');
@@ -14,7 +12,7 @@ function getDefaultRequestOptions() {
   };
 }
 
-module.exports = class RequestOptions {
+export default class RequestOptions {
   constructor(config, params) {
     this.config = config;
     this.requestOptions = this.createOptions(params);
