@@ -1,7 +1,6 @@
 import React from 'react'
 import Client from 'fhir-kit-client'
-import simpleOauthModule from 'simple-oauth2'
-import { oauth2 as SMART } from "fhirclient"
+import simpleOauthModule from '../libs/oauth2'
 
 /**
  * Typically the launch page is an empty page with a `SMART.authorize`
@@ -41,11 +40,11 @@ export default class Launcher extends React.Component {
 
     // Authorization uri definition
     const authorizationUri = oauth2.authorizationCode.authorizeURL({
-      redirect_uri: 'http://localhost:3555/callback',
+      redirect_uri: 'https://master.dcaniku3iszo3.amplifyapp.com/app',
       launch: '',
       aud: iss,
       scope: 'launch openid profile user/Patient.read patient/*.*',
-      state: '3(#0/!~',
+      state: '12345',
     });
     console.log(authorizationUri)
   }
