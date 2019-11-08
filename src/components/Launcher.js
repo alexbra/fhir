@@ -46,7 +46,7 @@ export default class Launcher extends React.Component {
       redirect_uri: 'https://master.dcaniku3iszo3.amplifyapp.com/app',
       launch,
       aud: iss,
-      scope: 'launch openid profile user/Patient.read patient/*.*',
+      scope: 'launch patient/*.*',
       state: '12345',
     });
     console.log(authorizationUri)
