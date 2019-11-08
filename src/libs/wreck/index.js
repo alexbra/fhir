@@ -1,19 +1,18 @@
-'use strict';
 
-const Events = require('events');
-const Http = require('http');
-const Https = require('https');
-const Stream = require('stream');
-const Url = require('url');
-const Zlib = require('zlib');
+import Tap from './tap'
+import Events from 'events'
+import Http from 'http'
+import Https from 'https'
+import Stream from 'stream'
+import Url from 'url'
+import Zlib from 'zlib'
 
-const Boom = require('@hapi/boom');
-const Bourne = require('@hapi/bourne');
-const Hoek = require('@hapi/hoek');
+import Boom from '@hapi/boom'
+import Bourne from '@hapi/bourne'
+import Hoek from '@hapi/hoek'
 
-const Payload = require('./payload');
-const Recorder = require('./recorder');
-const Tap = require('./tap');
+import Payload from './payload'
+import Recorder from './recorder'
 
 
 const internals = {

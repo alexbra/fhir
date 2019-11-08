@@ -1,14 +1,14 @@
 'use strict';
 
-const Stream = require('stream');
+import Stream from 'stream'
 
-const Payload = require('./payload');
+import Payload from './payload'
 
 
 const internals = {};
 
 
-export default class extends Stream.Transform {
+export default class Tap extends Stream.Transform {
 
     constructor() {
 

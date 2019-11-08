@@ -8,7 +8,7 @@ const Boom = require('@hapi/boom');
 const internals = {};
 
 
-export default class extends Stream.Writable {
+export default class Recorder extends Stream.Writable {
 
     constructor(options) {
 

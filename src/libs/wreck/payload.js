@@ -1,12 +1,10 @@
-'use strict';
-
-const Stream = require('stream');
+import Stream from 'stream'
 
 
 const internals = {};
 
 
-export default class extends Stream.Readable {
+export default class Payload extends Stream.Readable {
 
     constructor(payload, encoding) {
 
