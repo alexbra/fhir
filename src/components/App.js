@@ -6,7 +6,7 @@ import Home from "./Home";
 export default function App() {
     return (
         <BrowserRouter>
-            <Route path="/app" component={Home} />
+            <Route path="/app" component={Home} exact/>
             <Route path="/" component={Launcher} exact />
         </BrowserRouter>
     );
