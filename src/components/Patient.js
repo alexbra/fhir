@@ -17,8 +17,7 @@ export default class Patient extends React.Component {
 
     const fhirClient = new Client({ baseUrl: iss });
     const { authorizeUrl, tokenUrl } = await fhirClient.smartAuthMetadata();
-    console.log(window)
-    console.log(this.props)
+    console.log(window.location.search)
     // Create a new OAuth2 object using the Client capability statement:
     const oauth2 = simpleOauthModule.create({
       client: {
@@ -44,7 +43,7 @@ export default class Patient extends React.Component {
 
     try {
       const result = await oauth2.authorizationCode.getToken(options);
-
+      console.log(result)
       const { token } = oauth2.accessToken.create(result);
 
       console.log('The token is : ', token);

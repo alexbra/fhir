@@ -28,6 +28,7 @@ function parseToken(token) {
 
 export default class AccessToken {
   static factory(config, client) {
+    console.log(AccessToken)
     return (token) => new AccessToken(config, client, token);
   }
 
